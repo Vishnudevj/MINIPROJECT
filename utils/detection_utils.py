@@ -1,5 +1,4 @@
 import cv2
-import dlib
 from scipy.spatial import distance
 
 def eye_aspect_ratio(eye):
@@ -16,16 +15,20 @@ def detect_drowsiness(frame, detector, predictor):
     # Detect face
     faces = detector(gray)
     for face in faces:
+        # Get facial landmarks
         landmarks = predictor(gray, face)
-        left_eye = [landmarks.part(i) for i in range(36, 42)]
-        right_eye = [landmarks.part(i) for i in range(42, 48)]
+        
+        # Extract eye landmarks and convert to (x, y) tuples
+        left_eye = [(landmarks.part(i).x, landmarks.part(i).y) for i in range(36, 42)]
+        right_eye = [(landmarks.part(i).x, landmarks.part(i).y) for i in range(42, 48)]
         
         # Compute EAR
         left_ear = eye_aspect_ratio(left_eye)
         right_ear = eye_aspect_ratio(right_eye)
         ear = (left_ear + right_ear) / 2.0
         
-        # EAR threshold (adjust as needed)
-        if ear < 0.25:
+        # EAR threshold to detect drowsiness
+        if ear < 0.25:  # Adjust the threshold based on testing
             return "Drowsy"
+    
     return "Alert"
