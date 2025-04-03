@@ -25,11 +25,11 @@ def generate_frames():
 
         # Display results on frame
         cv2.putText(frame, f"Status: {status}", (20, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, color, 2)
-        cv2.putText(frame, f"EAR: {EAR:.2f}", (20, 80), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
-        cv2.putText(frame, f"MAR: {MAR:.2f}", (20, 110), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
-        cv2.putText(frame, f"Speed: {speed} km/h", (20, 140), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
-        cv2.putText(frame, f"Heart Rate: {heart_rate} bpm", (20, 170), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
-        cv2.putText(frame, f"Steering Tilt: {steering_tilt:.2f} deg", (20, 200), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
+        cv2.putText(frame, f"EAR: {EAR:.2f}", (20, 80), cv2.FONT_HERSHEY_SIMPLEX, 0.7,(0, 255, 0), 2)
+        cv2.putText(frame, f"MAR: {MAR:.2f}", (20, 110), cv2.FONT_HERSHEY_SIMPLEX, 0.7,(0, 255, 0), 2)
+        cv2.putText(frame, f"Speed: {speed} km/h", (20, 140), cv2.FONT_HERSHEY_SIMPLEX, 0.7,(0, 255, 0), 2)
+        cv2.putText(frame, f"Heart Rate: {heart_rate} bpm", (20, 170), cv2.FONT_HERSHEY_SIMPLEX, 0.7,(0, 255, 0), 2)
+        cv2.putText(frame, f"Steering Tilt: {steering_tilt:.2f} deg", (20, 200), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
 
         # Convert to JPEG format
         _, buffer = cv2.imencode('.jpg', frame)

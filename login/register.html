@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="login.css">
+
+    <!-- Supabase CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+
+    <!-- Load Supabase client and register script -->
+    <script defer src="supabase.js"></script>
+    <script defer src="register.js"></script>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Register</h2>
+        <form id="register-form">
+            <label>Name:</label>
+            <input type="text" id="name" required>
+
+            <label>Mobile Number:</label>
+            <input type="tel" id="mobile-number" required>
+
+            <label>Username:</label>
+            <input type="text" id="username" required>
+
+            <label>Password:</label>
+            <input type="password" id="password" required>
+
+            <button type="submit">Register</button>
+
+            <!-- Success and Error Messages -->
+            <p id="register-error" style="color: red;"></p>
+            <p id="register-success" style="color: green;"></p>
+        </form>
+        <p>Already have an account? <a href="login.html">Login here</a></p>
+    </div>
+</body>
+</html>

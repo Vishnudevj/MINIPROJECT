@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+
+    <!-- Supabase CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+
+    <!-- Load the Supabase client script first -->
+    <script defer src="supabase.js"></script>
+
+    <!-- Chart.js for Analytics -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Load the dashboard script -->
+    <script defer src="dashboard.js"></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="logo">Welcome, <span id="user-name"></span> 👋</div>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <div class="sidebar">
+            <button class="toggle-btn" onclick="showSection('user-history')">📜 User History</button>
+            <button class="toggle-btn" onclick="showSection('analytics')">📊 Analytics</button>
+            <button class="toggle-btn" onclick="showSection('video-feed')">📹 Video Feed</button>
+        </div>
+
+        <!-- Main Content Section -->
+        <div class="right-section">
+            <!-- User History -->
+            <div id="user-history" class="hidden">
+                <h3>User History</h3>
+                <div id="history-content"><p>Loading...</p></div>
+            </div>
+
+            <!-- Analytics (Histogram: Frequency vs Time) -->
+            <div id="analytics" class="hidden">
+                <h3>Analytics (Frequency vs Time)</h3>
+                <canvas id="alertHistogram"></canvas>  
+            </div>
+
+            <!-- Video Feed Section -->
+            <div id="video-feed" class="hidden">
+                <h3>Live Video Feed</h3>
+                <div style="display: flex; align-items: center;">
+                    <!-- Change from <video> to <img> for MJPEG streaming -->
+                    <img id="liveFeed" src="http://127.0.0.1:5000/video_feed" alt="Live Video Feed" style="width: 640px; height: 480px; border: 2px solid black;">
+                    
+                    <!-- Alert Display -->
+                    <div id="alert-container" style="margin-left: 20px; font-size: 20px; font-weight: bold; color: red;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

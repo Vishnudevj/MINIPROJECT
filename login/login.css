@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Ensure full height */
+html, body {
+    height: 100%;
+}
+
+/* Full-Page Background with a Tech-Themed Image */
+body {
+    background: url("https://picsum.photos/id/352/1920/1080") no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Orbitron', sans-serif;
+    background-attachment: fixed;
+}
+
+/* Futuristic Container for Login & Registration */
+.login-container {
+    width: 380px;
+    padding: 2.5rem;
+    background: rgba(0, 0, 0, 0.75);
+    border: 2px solid #00ffff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+    text-align: center;
+    color: #00ffff;
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Decorative Neon Glow Background Effect */
+.login-container::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(0, 255, 255, 0.1), transparent);
+    transform: rotate(25deg);
+    z-index: 0;
+}
+
+/* Ensure content is above the decorative layer */
+.login-container * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Title Styling */
+.login-container h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1.5px;
+    color: #00ffff;
+}
+
+/* Input Fields Styling */
+.login-container input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    margin: 0.7rem 0;
+    border: 1px solid #00ffff;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: rgba(0, 0, 0, 0.5);
+    color: #00ffff;
+    outline: none;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.login-container input::placeholder {
+    color: rgba(0, 255, 255, 0.7);
+}
+
+.login-container input:focus {
+    transform: scale(1.03);
+    border-color: #00ffff;
+}
+
+/* Artistic Button Styling */
+.login-container button {
+    width: 100%;
+    padding: 0.9rem;
+    margin-top: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(45deg, #00ffff, #008b8b);
+    color: #000;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.login-container button:hover {
+    transform: scale(1.04);
+    box-shadow: 0 0 15px #00ffff;
+}
+
+/* Link Styling */
+.login-container p {
+    margin-top: 1.2rem;
+    font-size: 0.9rem;
+    color: #00ffff;
+}
+
+.login-container a {
+    color: #00ffff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-container a:hover {
+    text-decoration: underline;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 400px) {
+    .login-container {
+        width: 90%;
+        padding: 2rem;
+    }
+}
